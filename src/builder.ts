@@ -1,5 +1,5 @@
 import { URL } from 'url';
-import {
+import type {
   FocusPoint,
   Gravity,
   HexColor,
@@ -8,14 +8,8 @@ import {
   RGBColor,
   WatermarkOffset,
   WatermarkPosition,
-} from './types';
-import {
-  isFocusPoint,
-  isRGBColor,
-  isSecureConfig,
-  sign,
-  urlSafeEncode,
-} from './utils';
+} from './types.js';
+import { isFocusPoint, isRGBColor, isSecureConfig, sign } from './utils.js';
 
 export class ImgproxyBuilder {
   private readonly config: ImgproxyConfig;

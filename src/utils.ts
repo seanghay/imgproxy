@@ -1,5 +1,10 @@
 import { createHmac } from 'crypto';
-import { FocusPoint, ImgproxySecureConfig, RGBColor } from './types';
+import {
+  FocusPoint,
+  ImgproxyConfig,
+  ImgproxySecureConfig,
+  RGBColor,
+} from './types.js';
 
 export const isRGBColor = (obj: RGBColor | unknown): obj is RGBColor => {
   return (

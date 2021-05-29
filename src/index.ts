@@ -1,6 +1,6 @@
-import { ImgproxyBuilder } from './builder';
-import { ImgproxyConfig, ImgproxySecureConfig } from './types';
-import { isSecureConfig } from './utils';
+import type { ImgproxyConfig, ImgproxySecureConfig } from './types.js';
+import { ImgproxyBuilder } from './builder.js';
+import { isSecureConfig } from './utils.js';
 
 export default class Imgproxy {
   private readonly config: ImgproxyConfig | ImgproxySecureConfig;
@@ -21,4 +21,4 @@ export default class Imgproxy {
   }
 }
 
-export { Gravity, WatermarkPosition } from './types';
+export { Gravity, WatermarkPosition } from './types.js';
