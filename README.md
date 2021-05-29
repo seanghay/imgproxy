@@ -1,4 +1,6 @@
-# imgproxy
+# @block65/imgproxy
+
+This is a pure ESM fork of the original [improxy](https://www.npmjs.com/package/imgproxy). 
 
 A Node client library to generate urls for
 [imgproxy](https://github.com/DarthSim/imgproxy) services.

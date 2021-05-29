@@ -1,12 +1,13 @@
-import urljoin from 'url-join';
-import { Gravity, WatermarkPosition } from '.';
+import { URL } from 'url';
 import {
   FocusPoint,
+  Gravity,
   HexColor,
   ImgproxyConfig,
   ResizingType,
   RGBColor,
   WatermarkOffset,
+  WatermarkPosition,
 } from './types';
 import {
   isFocusPoint,
@@ -17,7 +18,8 @@ import {
 } from './utils';
 
 export class ImgproxyBuilder {
-  private config: ImgproxyConfig;
+  private readonly config: ImgproxyConfig;
+
   private options: { [key: string]: string | undefined } = {};
 
   constructor(config: ImgproxyConfig) {
@@ -28,7 +30,7 @@ export class ImgproxyBuilder {
     type?: ResizingType,
     width?: number,
     height?: number,
-    enlarge?: boolean
+    enlarge?: boolean,
   ) {
     this.setOption('rs', [type, width, height, enlarge ? 1 : 0].join(':'));
     return this;
@@ -103,13 +105,13 @@ export class ImgproxyBuilder {
     opacity: number,
     position?: WatermarkPosition,
     offset?: WatermarkOffset,
-    scale?: number
+    scale?: number,
   ) {
     this.setOption(
       'wm',
       `${opacity}:${position}:${
         offset ? `${offset.x}:${offset.y}` : ''
-      }:${scale}`
+      }:${scale}`,
     );
 
     return this;
@@ -146,19 +148,24 @@ export class ImgproxyBuilder {
    */
   public generateUrl(uri: string, extension?: string) {
     const options = this.serializeOptions();
-    const config = this.config;
+    const { config } = this;
     const encode = config.encode !== false;
 
+    // eslint-disable-next-line no-param-reassign
     uri = encode ? urlSafeEncode(uri) : `plain/${uri}`;
+    // eslint-disable-next-line no-param-reassign
     uri = extension ? `${uri}${encode ? '.' : '@'}${extension}` : uri;
+    // eslint-disable-next-line no-param-reassign
     uri = `/${options ? `${options}/` : ''}${uri}`;
 
+    // eslint-disable-next-line no-nested-ternary
     const signature = isSecureConfig(config)
       ? sign(config.key, config.salt, uri, config.signatureSize || 32)
       : typeof config.insecure === 'string'
       ? config.insecure
       : 'insecure';
-    return urljoin(config.baseUrl, `${signature}${uri}`);
+
+    return new URL(`${signature}${uri}`, config.baseUrl);
   }
 
   private serializeOptions() {

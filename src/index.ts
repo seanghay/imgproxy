@@ -1,20 +1,15 @@
 import { ImgproxyBuilder } from './builder';
-import {
-  Gravity,
-  ImgproxyConfig,
-  ImgproxySecureConfig,
-  WatermarkPosition,
-} from './types';
+import { ImgproxyConfig, ImgproxySecureConfig } from './types';
 import { isSecureConfig } from './utils';
 
 export default class Imgproxy {
-  private config: ImgproxyConfig | ImgproxySecureConfig;
+  private readonly config: ImgproxyConfig | ImgproxySecureConfig;
 
   constructor(config: ImgproxyConfig | ImgproxySecureConfig) {
     if (isSecureConfig(config) && typeof config.signatureSize !== 'undefined') {
       if (config.signatureSize < 1 || config.signatureSize > 32) {
         throw new Error(
-          '`signatureSize` must be greater than or equal to 1, and less than or equal to 32'
+          '`signatureSize` must be greater than or equal to 1, and less than or equal to 32',
         );
       }
     }
@@ -26,4 +21,4 @@ export default class Imgproxy {
   }
 }
 
-export { Gravity, WatermarkPosition };
+export { Gravity, WatermarkPosition } from './types';

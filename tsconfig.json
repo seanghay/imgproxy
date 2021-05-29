@@ -1,12 +1,19 @@
 {
   "compilerOptions": {
-    "lib": ["esnext"],
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "outDir": "dist",
-    "esModuleInterop": true
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "strict": true,
+    "declaration": true,
+    "lib": [
+      "es2020"
+    ],
+    "outDir": "./dist",
+    "module": "es2020"
   },
+  "exclude": [
+    "dist"
+  ],
   "include": [
-    "src/**/*"
+    "./src"
   ]
 }

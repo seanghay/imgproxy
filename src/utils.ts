@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import { createHmac } from 'crypto';
 import { FocusPoint, ImgproxySecureConfig, RGBColor } from './types';
 
 export const isRGBColor = (obj: any): obj is RGBColor => {
@@ -26,9 +26,9 @@ export const sign = (
   key: string,
   salt: string,
   target: string,
-  size: number = 32
+  size: number = 32,
 ) => {
-  const hmac = crypto.createHmac('sha256', hexDecode(key));
+  const hmac = createHmac('sha256', hexDecode(key));
   hmac.update(hexDecode(salt));
   hmac.update(target);
   return urlSafeEncode(hmac.digest().slice(0, size));
