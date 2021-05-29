@@ -1,5 +1,5 @@
 import { expect, test, describe, beforeAll } from '@jest/globals';
-import Imgproxy, { Gravity } from '../src/index';
+import Imgproxy, { Gravity } from '../src/index.js';
 
 describe('readme', () => {
   beforeAll(() => {
@@ -7,7 +7,7 @@ describe('readme', () => {
     process.env.IMGPROXY_SALT = 'ffffff';
   });
 
-  test('the only test"', () => {
+  test('the only test', () => {
     const imgproxy = new Imgproxy({
       baseUrl: 'https://imgproxy.example.com',
       key: process.env.IMGPROXY_KEY,
