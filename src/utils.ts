@@ -32,5 +32,5 @@ export const sign = (
   const hmac = createHmac('sha256', hexDecode(key));
   hmac.update(hexDecode(salt));
   hmac.update(target);
-  return urlSafeEncode(hmac.digest().slice(0, size));
+  return hmac.digest().slice(0, size).toString('base64url');
 };

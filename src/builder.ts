@@ -152,7 +152,7 @@ export class ImgproxyBuilder {
     const encode = config.encode !== false;
 
     // eslint-disable-next-line no-param-reassign
-    uri = encode ? urlSafeEncode(uri) : `plain/${uri}`;
+    uri = encode ? Buffer.from(uri).toString('base64url') : `plain/${uri}`;
     // eslint-disable-next-line no-param-reassign
     uri = extension ? `${uri}${encode ? '.' : '@'}${extension}` : uri;
     // eslint-disable-next-line no-param-reassign
