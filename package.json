@@ -1,6 +1,6 @@
 {
   "name": "@block65/imgproxy",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "NodeJS pure ESM client library to generate imgproxy urls",
   "keywords": [
     "imgproxy",
