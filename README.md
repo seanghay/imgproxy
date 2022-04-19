@@ -7,8 +7,12 @@ A Node client library to generate urls for
 
 ## Usage
 
+```
+npm i @seanghay/imgproxy
+```
+
 ```ts
-import { Imgproxy, Gravity } from 'imgproxy';
+import { Imgproxy, Gravity } from '@seanghay/imgproxy';
 
 const imgproxy = new Imgproxy({
   baseUrl: 'https://imgproxy.example.com',
