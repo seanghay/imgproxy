@@ -1,6 +1,6 @@
 # @seanghay/imgproxy
 
-Suppprts for ESM, CommonJS and Browser. Deno?
+Suppprts for ESM and CommonJS.
 
 A Node client library to generate urls for
 [imgproxy](https://github.com/block65/imgproxy-node) services.
