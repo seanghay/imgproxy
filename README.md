@@ -3,12 +3,16 @@
 This is a pure ESM/CommonJS fork of the original [improxy](https://www.npmjs.com/package/imgproxy). 
 
 A Node client library to generate urls for
-[imgproxy](https://github.com/block65/imgproxy) services.
+[imgproxy](https://github.com/block65/imgproxy-node) services.
 
 ## Usage
 
+```
+npm i @seanghay/imgproxy
+```
+
 ```ts
-import { Imgproxy, Gravity } from 'imgproxy';
+import { Imgproxy, Gravity } from '@seanghay/imgproxy';
 
 const imgproxy = new Imgproxy({
   baseUrl: 'https://imgproxy.example.com',
