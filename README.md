@@ -5,7 +5,7 @@ Suppprts for ESM, CommonJS and Browser. Deno?
 A Node client library to generate urls for
 [imgproxy](https://github.com/block65/imgproxy-node) services.
 
-> This is a pure ESM/CommonJS fork of the original [improxy](https://www.npmjs.com/package/imgproxy). 
+> This is a pure ESM/CommonJS fork of the original [imgproxy](https://www.npmjs.com/package/imgproxy). 
 
 
 ## Usage
