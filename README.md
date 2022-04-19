@@ -11,8 +11,30 @@ A Node client library to generate urls for
 npm i @seanghay/imgproxy
 ```
 
+### ESM
+
 ```ts
 import { Imgproxy, Gravity } from '@seanghay/imgproxy';
+
+const imgproxy = new Imgproxy({
+  baseUrl: 'https://imgproxy.example.com',
+  key: process.env.IMGPROXY_KEY,
+  salt: process.env.IMGPROXY_SALT,
+  encode: true,
+});
+
+imgproxy
+  .builder()
+  .resize('fill', 300, 200, 0)
+  .gravity(Gravity.north_east)
+  .dpr(2)
+  .generateUrl('https://example.com/path/to/image.jpg');
+```
+
+### CommonJS
+
+```ts
+const { Imgproxy, Gravity } = require('@seanghay/imgproxy');
 
 const imgproxy = new Imgproxy({
   baseUrl: 'https://imgproxy.example.com',
