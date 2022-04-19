@@ -1,5 +1,8 @@
 # @seanghay/imgproxy
 
+Suppprts for ESM, Node and Browser. Deno?
+
+
 This is a pure ESM/CommonJS fork of the original [improxy](https://www.npmjs.com/package/imgproxy). 
 
 A Node client library to generate urls for
