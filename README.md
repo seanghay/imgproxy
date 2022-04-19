@@ -1,6 +1,6 @@
 # @seanghay/imgproxy
 
-Suppprts for ESM, Node and Browser. Deno?
+Suppprts for ESM, CommonJS and Browser. Deno?
 
 
 This is a pure ESM/CommonJS fork of the original [improxy](https://www.npmjs.com/package/imgproxy). 
