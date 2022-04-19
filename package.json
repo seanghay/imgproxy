@@ -1,5 +1,5 @@
 {
-  "name": "@block65/imgproxy",
+  "name": "@seanghay/imgproxy",
   "version": "1.0.2",
   "description": "NodeJS pure ESM client library to generate imgproxy urls",
   "keywords": [
@@ -8,45 +8,41 @@
     "generation",
     "client"
   ],
-  "homepage": "https://github.com/block65/imgproxy-node#readme",
+  "homepage": "https://github.com/seanghay/imgproxy-node#readme",
   "bugs": {
-    "url": "https://github.com/block65/imgproxy-node/issues"
+    "url": "https://github.com/seanghay/imgproxy-node/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/block65/imgproxy-node.git"
+    "url": "git+https://github.com/seanghay/imgproxy-node.git"
   },
   "license": "MIT",
   "author": "Koen Punt <koen@unitedwardrobe.com>",
-  "type": "module",
-  "main": "dist/index.js",
+  "module": "./dist/main.mjs",
+  "main": "./dist/main.cjs",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs",
+      "types": "./dist/main.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "tsc",
-    "build:watch": "yarn build -w",
-    "prepublish": "yarn build",
-    "lint": "eslint .",
-    "test": "NODE_OPTIONS=\"--experimental-vm-modules --experimental-specifier-resolution=node\" jest"
+    "prepublishOnly": "unbuild",
+    "build": "unbuild",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "test:ci": "cross-env CI=true vitest --run",
+    "release": "bumpp --commit --push --tag"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.4",
-    "@babel/preset-typescript": "^7.13.0",
-    "@block65/eslint-config": "4.2.1",
-    "@jest/globals": "^27.0.1",
-    "@types/node": "^15.6.1",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "eslint": "^7.27.0",
-    "eslint-plugin-import": "^2.23.3",
-    "eslint-plugin-prettier": "^3.4.0",
-    "jest": "^27.0.1",
-    "prettier": "^2.3.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.3.2"
-  },
-  "engines": {
-    "node": ">=15.14"
+    "bumpp": "^7.1.1",
+    "cross-env": "^7.0.3",
+    "unbuild": "^0.7.4",
+    "vitest": "^0.9.3"
   }
 }

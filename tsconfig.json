@@ -1,19 +1,13 @@
 {
   "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["esnext"],
     "moduleResolution": "node",
-    "sourceMap": true,
+    "esModuleInterop": true,
     "strict": true,
-    "declaration": true,
-    "lib": [
-      "es2020"
-    ],
-    "outDir": "./dist",
-    "module": "es2020"
-  },
-  "exclude": [
-    "dist"
-  ],
-  "include": [
-    "./src"
-  ]
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true
+  }
 }

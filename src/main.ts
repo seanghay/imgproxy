@@ -2,9 +2,10 @@ import type { ImgproxyConfig, ImgproxySecureConfig } from './types.js';
 import { ImgproxyBuilder } from './builder.js';
 import { isSecureConfig } from './utils.js';
 
-export default class Imgproxy {
-  private readonly config: ImgproxyConfig | ImgproxySecureConfig;
+export class Imgproxy {
 
+  private readonly config: ImgproxyConfig | ImgproxySecureConfig;
+  
   constructor(config: ImgproxyConfig | ImgproxySecureConfig) {
     if (isSecureConfig(config) && typeof config.signatureSize !== 'undefined') {
       if (config.signatureSize < 1 || config.signatureSize > 32) {
